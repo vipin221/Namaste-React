@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -7,14 +7,20 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantsMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { StrictMode } from "react";
+const Grocery = lazy(() => import('./components/Grocery'));
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 
 const App = () => {
   return (
-    <div className="app">
-      <Header />  
-      <Outlet />
-    </div>
+    <Provider store={appStore}>
+      
+        <Header />
+        <Outlet />
+    </Provider>
   )
 }
 
@@ -22,30 +28,40 @@ const App = () => {
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
-    children:[
+    element: <App />,
+    children: [
       {
         path: "/",
-        element:<Body/>
+        element: <Body />
       },
       {
         path: "/about",
-        element: <AboutUs/>,
-        
+        element: <AboutUs />,
+
       },
       {
         path: "/contact",
-        element: <Contact/>,      
+        element: <Contact />,
+      },
+      {
+        path: "/grocery",
+        element: <Suspense fallback={<h1>Loading....</h1>}>
+          <Grocery />
+        </Suspense>,
+      },
+      {
+        path: "/cart",
+        element: <Cart/>
       },
       {
         path: "/restaurants/:resId",
-        element: <RestaurantsMenu/>,      
+        element: <RestaurantsMenu />,
       },
     ],
-    errorElement: <Error/>,
+    errorElement: <Error />,
 
   },
-  
+
 ]);
 
 
@@ -54,5 +70,9 @@ const appRouter = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<RouterProvider router={appRouter} />);
+root.render(
+  <StrictMode>
+    <RouterProvider router={appRouter} />
+  </StrictMode>
+);
 

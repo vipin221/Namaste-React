@@ -1,14 +1,34 @@
-const AboutUs = ()=>{
+import AboutUserCard from "./AboutUserCard";
+import AboutClassbaseCompo from "./AboutClassbaseCompo";
+import React from "react";
 
-    return<>
-        <h1>This is About Us Page</h1>
-        <p>sdf sdf dhhfds kfhsdadkjjfh sdfh sadkjfhd kjgjhelihdjh dsfkjdfdjfn
-        kljvipd ifdn vjovidpvj pvoisf nd adfadlfa dfjasdhfl djdf kgafdlafpfl fp fdh dapidf 
-         fkf jlaf lf adlf;fkp sldflpoijjlkoi  pioj;lk jop i pij  kjh po  ;kjj o kj l i  ioijpu okjlku ij;kljojlm</p>
-    </>
+class AboutUs extends React.Component{
+    constructor(props){
+        super(props);    
+    }
 
+   componentDidMount(){
+    }
+    render(){
+        
+        return  <AboutClassbaseCompo />;
 
-
+    }
 }
-
 export default AboutUs;
+
+
+/*
+    Sequence of execution
+    - Parent Constructor
+    - Parent Render
+        - First Child Constructor
+        - First Child Render
+        - second Child Constructor
+        - Second Child Render
+        - First Child Component DidMOunt
+        - Second Child Component DidMOunt
+    - Parent Component DidMount
+
+
+*/

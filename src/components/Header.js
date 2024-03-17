@@ -1,32 +1,39 @@
-import { useState } from "react";
-import { LOGO_URL } from "../utils/constant";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import userContext from "../utils/userContext";
+import { useSelector } from "react-redux";
+import {LOGO_URL} from '../utils/constant'
 
 
 
 const Header = () => {
+  const { loggedInUser } = useContext(userContext);
 
   const [btnName, setbtnName] = useState("Login");
+  const onlineStatus = useOnlineStatus();
+
+
+  const cartItem = useSelector((store) => store.cart.items);
 
 
 
-    return (
-      <div className="header">
-        <div className="App-logo">
-          <img className="logo" src={LOGO_URL} />
-        </div>
-        <div className="nav-items">
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About Us</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-            <li>Cart</li>
-            <button onClick={()=> btnName === "Login" ? setbtnName("Logout") : setbtnName("Login")} className="Login">{btnName}</button>
-          </ul>
-        </div>
+  return (
+    <div className="flex justify-between w-full  bg-orange-200 shadow-xl">
+      <div >
+        <img src={LOGO_URL} alt="logo" className="p-4 w-28 mix-blend-color-burn " />
       </div>
-    )
-  };
+      <ul className="flex  text-lg items-center  font-medium font-sans">
+        <li className="m-2 p-2">{onlineStatus ? "🟢" : "🔴"}</li>
+        <li className="m-2 p-2 hover:bg-orange-300 rounded-lg transition duration-300" ><Link to="/">Home</Link></li>
+        <li className="m-2 p-2 hover:bg-orange-300 rounded-lg transition duration-300" ><Link to="/about">About</Link></li>
+        <li className="m-2 p-2 hover:bg-orange-300 rounded-lg transition duration-300" ><Link to="/contact">Contact</Link></li>
+        <li className="m-2 p-2 hover:bg-orange-300 rounded-lg transition duration-300" ><Link to="/grocery">Grocery</Link></li>
+        <li className="m-2 p-2 hover:bg-orange-300 rounded-lg transition duration-300 " ><Link to="/cart">Cart ({cartItem.length})</Link></li>
+        <button onClick={() => btnName === "Login" ? setbtnName(loggedInUser) : setbtnName("Login")} className="bg-blue-100 opacity-95 rounded-lg m-2 p-2">{btnName}</button>
+      </ul>
+    </div>
+  )
+};
 
-  export default Header;
-  
+export default Header;
