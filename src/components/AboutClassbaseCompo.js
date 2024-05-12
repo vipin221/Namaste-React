@@ -20,14 +20,13 @@ class AboutClassbaseCompo extends React.Component {
             window.location.href = `mailto:${this.email}`;
         }
 
-        console.log(this.state);
     }; 
 
     async componentDidMount() {
        
         const data = await fetch("https://api.github.com/users/vipin221");
         const json = await data.json();
-        console.log(json);
+      
        
         this.setState({
             userInfo: json

@@ -9,7 +9,6 @@ import { Trash } from 'react-feather';
 const Cart = () => {
 
   const itemCards = useSelector((store) => store.cart.items);
-  console.log("inside cart", itemCards);
   const dispatch = useDispatch();
 
 
@@ -19,9 +18,9 @@ const Cart = () => {
       <p> location</p>
 
       <div className='w-1/2 flex justify-center items-center flex-col p-4'>
-        <div className='text-center m-4 w-full flex justify-end  rounded-lg text-white '>
+        {itemCards.length === 0 ? <div className='text-center m-4 w-full flex justify-end  rounded-lg text-white '>
           <button className='bg-red-500 rounded-xl p-2 font-semibold' onClick={() => dispatch(clearItems())}> Clear Cart </button>
-        </div>
+        </div>: <></>}
         {itemCards.length === 0 ? <h1 className='text-lg font-semibold my-20'> Your Cart is Empty!!!!!!!!! Add Your Favourite Dishes </h1> : itemCards.map((items) => {
           return (
             <div key={items.card.info.id} className=' w-[400] border flex justify-start h-20 gap-3 items-center m-3 shadow-lg shadow-gray-400  rounded-lg overflow-hidden '>

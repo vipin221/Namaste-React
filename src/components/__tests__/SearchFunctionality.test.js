@@ -28,8 +28,6 @@ it("should Load the Body Component With Search Functionality", ()=>{
     fireEvent.change(searchInput, {target: {value: "burger"}});
 
     fireEvent.click(searchBtn);
-
-    // console.log(searchBtn);
     
     const cardAfterSearch = screen.getAllByTestId("resCard");
 
