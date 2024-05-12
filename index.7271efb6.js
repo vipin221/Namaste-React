@@ -35299,22 +35299,30 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "LOGO_URL", ()=>LOGO_URL);
 parcelHelpers.export(exports, "RES_IMG", ()=>RES_IMG);
-parcelHelpers.export(exports, "RES_LISTS", ()=>RES_LISTS);
 parcelHelpers.export(exports, "MENU_API_URL", ()=>MENU_API_URL);
 parcelHelpers.export(exports, "Banner_URL", ()=>Banner_URL);
 parcelHelpers.export(exports, "Git", ()=>Git);
 parcelHelpers.export(exports, "Insta", ()=>Insta);
 parcelHelpers.export(exports, "X", ()=>X);
 parcelHelpers.export(exports, "Portfolio", ()=>Portfolio);
+parcelHelpers.export(exports, "RES_LISTS", ()=>RES_LISTS);
+parcelHelpers.export(exports, "options", ()=>options);
 const LOGO_URL = "https://w1.pngwing.com/pngs/188/805/png-transparent-food-icon-tea-cooking-drink-kitchen-fast-food-logo-restaurant.png";
 const RES_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
-const RES_LISTS = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 const MENU_API_URL = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9351929&lng=77.62448069999999&restaurantId=";
 const Banner_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/";
 const Git = "https://github.com/vipin221/";
 const Insta = "https://www.instagram.com/vip.in_maurya/";
 const X = "https://twitter.com/VipinMa91297633";
 const Portfolio = "https://vipin221.github.io/Portfolio/";
+const RES_LISTS = "https://cors-proxy4.p.rapidapi.com/?url=https%3A%2F%2Fwww.swiggy.com%2Fdapi%2Frestaurants%2Flist%2Fv5%3Flat%3D12.9351929%26lng%3D77.62448069999999%26is-seo-homepage-enabled%3Dtrue%26page_type%3DDESKTOP_WEB_LISTING";
+const options = {
+    method: "GET",
+    headers: {
+        "X-RapidAPI-Key": "8ae8838ebdmsh955720f696b812ap1a0969jsn3fd11e298043",
+        "X-RapidAPI-Host": "cors-proxy4.p.rapidapi.com"
+    }
+};
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hblQm":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -37903,7 +37911,7 @@ const Body = ()=>{
         fetchData();
     }, []);
     const fetchData = async ()=>{
-        const data = await fetch((0, _constant.RES_LISTS));
+        const data = await fetch((0, _constant.RES_LISTS), (0, _constant.options));
         const json = await data.json();
         setlistOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setfilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -37921,13 +37929,13 @@ const Body = ()=>{
         children: "Uh Oh! Seems Like you Are Offline!!!!!!!!!"
     }, void 0, false, {
         fileName: "src/components/Body.js",
-        lineNumber: 57,
+        lineNumber: 58,
         columnNumber: 12
     }, undefined);
     const OpenRestuarant = (0, _card.OpenRestuarantCard)((0, _cardDefault.default));
     return listOfRestaurants?.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/Body.js",
-        lineNumber: 62,
+        lineNumber: 63,
         columnNumber: 43
     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "p-10",
@@ -37947,7 +37955,7 @@ const Body = ()=>{
                             value: searchText
                         }, void 0, false, {
                             fileName: "src/components/Body.js",
-                            lineNumber: 66,
+                            lineNumber: 67,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -37959,14 +37967,14 @@ const Body = ()=>{
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactFeather.Search), {}, void 0, false, {
                                     fileName: "src/components/Body.js",
-                                    lineNumber: 75,
+                                    lineNumber: 76,
                                     columnNumber: 13
                                 }, undefined),
                                 " "
                             ]
                         }, void 0, true, {
                             fileName: "src/components/Body.js",
-                            lineNumber: 71,
+                            lineNumber: 72,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -37977,18 +37985,18 @@ const Body = ()=>{
                             children: "High Rated Restaurants"
                         }, void 0, false, {
                             fileName: "src/components/Body.js",
-                            lineNumber: 76,
+                            lineNumber: 77,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 65,
+                    lineNumber: 66,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 64,
+                lineNumber: 65,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -38008,7 +38016,7 @@ const Body = ()=>{
                             children: "Scroll Left"
                         }, void 0, false, {
                             fileName: "src/components/Body.js",
-                            lineNumber: 95,
+                            lineNumber: 96,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -38017,25 +38025,25 @@ const Body = ()=>{
                             children: "Scroll Right"
                         }, void 0, false, {
                             fileName: "src/components/Body.js",
-                            lineNumber: 101,
+                            lineNumber: 102,
                             columnNumber: 11
                         }, undefined),
                         gridItems.map((items)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bannerDefault.default), {
                                 gridData: items
                             }, items?.id, false, {
                                 fileName: "src/components/Body.js",
-                                lineNumber: 107,
+                                lineNumber: 108,
                                 columnNumber: 37
                             }, undefined))
                     ]
                 }, void 0, true, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 89,
+                    lineNumber: 90,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 86,
+                lineNumber: 87,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -38048,36 +38056,36 @@ const Body = ()=>{
                                 resData: item
                             }, void 0, false, {
                                 fileName: "src/components/Body.js",
-                                lineNumber: 118,
+                                lineNumber: 119,
                                 columnNumber: 36
                             }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default), {
                                 resData: item
                             }, void 0, false, {
                                 fileName: "src/components/Body.js",
-                                lineNumber: 118,
+                                lineNumber: 119,
                                 columnNumber: 71
                             }, undefined)
                         }, item.info.id, false, {
                             fileName: "src/components/Body.js",
-                            lineNumber: 117,
+                            lineNumber: 118,
                             columnNumber: 13
                         }, undefined)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                         children: "No Result found"
                     }, void 0, false)
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 115,
+                    lineNumber: 116,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 114,
+                lineNumber: 115,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Body.js",
-        lineNumber: 63,
+        lineNumber: 64,
         columnNumber: 5
     }, undefined);
 };
