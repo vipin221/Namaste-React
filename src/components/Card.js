@@ -2,8 +2,7 @@ import { Star } from "react-feather";
 import { RES_IMG } from "../utils/constant";
 
 const Card = (props) => {
-    const { name, cuisines, costForTwo, resLogo, avgRating, sla, cloudinaryImageId } = props?.resData.info;
-  console.log(props?.resData);
+    const { name, cuisines, avgRating, sla, cloudinaryImageId } = props?.resData.info;
   
   
     return (
