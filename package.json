@@ -2,7 +2,7 @@
   "name": "namste-react",
   "homepage": "https://vipin221.github.io/Namaste-React",
   "version": "1.0.0",
-  "description": "this is namaste nreact course ",
+  "description": "this is namaste react course ",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
