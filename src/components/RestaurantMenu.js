@@ -22,7 +22,7 @@ const RestaurantsMenu = () => {
     const resItems = cardHasResList?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((item) => {
         return item?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     })
-    resDetail = resInfo?.cards[2]?.card?.card?.info;
+    const resDetail = resInfo?.cards[2]?.card?.card?.info;
    
 
 
