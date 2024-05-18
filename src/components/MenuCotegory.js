@@ -7,7 +7,7 @@ const MenuCotegory = ({resData,showIndex, setShowIndex,index}) => {
     const { title, itemCards } =  resData?.card?.card;
 
 
-    handleClick = () => {
+    const handleClick = () => {
         if(showIndex === true) {
             setShowIndex(-1);
         }
