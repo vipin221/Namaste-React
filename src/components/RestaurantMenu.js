@@ -23,6 +23,7 @@ const RestaurantsMenu = () => {
         return item?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     })
     resDetail = resInfo?.cards[2]?.card?.card?.info;
+   
 
 
     return (
